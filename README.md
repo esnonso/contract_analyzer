@@ -42,6 +42,8 @@ The question flow uses MongoDB Atlas Vector Search. The `documentChunks` collect
 	]
 }
 ```
+# DEPLOYED APPLICATION
+>https://contract-analyzer-topaz-nine.vercel.app/
 
 # Problem & Solution
 
