@@ -114,6 +114,9 @@ Yes.
 
 The system is built from scratch starting August 28 using reproducible pipeline that can be replicated by anyone. The agent used is `GitHub CoPilot`. I give it the prompts and it creates the needed component. Because the process is deterministic at the application level and the components are clearly defined, another developer can reproduce the same architecture using NextJs, environment variables[`database connection & Gemini Api Key`], database configuration [MongoDB], embedding model[GoogleGemini], and LLM configuration[GoogleGemini].
 
+## NOTE
+* The uploaded pdf contracts are not uploaded or saved to a cloud Database like S3 Bucket, the texts is extracted, split into chunks and saved with reference to the original documentId on MongoDB.
+
 ## THOUGHT PROCESS/ PIPELINE/ ARCHITECTURE
 
 1. Upload a contract PDF - .
@@ -169,4 +172,4 @@ Create an env file and have these two variables
 > https://contract-analyzer-topaz-nine.vercel.app/
 
 ## NOTE
-> The deployed version uses free tier of Google Gemini which has exceeded its free embedding limits. This will cause uploading issues. However click on saved documents and interact with them. The pdf documents are saved in the public folder
+> The deployed version uses free tier of Google Gemini which has exceeded its free embedding limits. This may return an error at this time when a new document is uploaded. However, click on saved documents and interact with them. The pdf documents are saved in the public folder for reference purpose.
