@@ -42,8 +42,6 @@ The question flow uses MongoDB Atlas Vector Search. The `documentChunks` collect
 	]
 }
 ```
-# DEPLOYED APPLICATION
->https://contract-analyzer-topaz-nine.vercel.app/
 
 # Problem & Solution
 
@@ -164,5 +162,11 @@ The system can also be evaluated using publicly available contract datasets such
 
 ## ENVIRONMENT VARIABLES
 Create an env file and have these two variables
->MONGO_DB_URI
->GEMINI_API_KEY`
+> MONGO_DB_URI
+> GEMINI_API_KEY`
+
+# DEPLOYED APPLICATION
+> https://contract-analyzer-topaz-nine.vercel.app/
+
+## NOTE
+> The deployed version uses free tier of Google Gemini which has exceeded its free embedding limits. This will cause uploading issues. However click on saved documents and interact with them. The pdf documents are saved in the public folder

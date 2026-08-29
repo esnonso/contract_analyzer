@@ -14,6 +14,7 @@ type DocumentResult = {
 export default function DocumentViewPage() {
   const params = useParams<{ documentId?: string }>();
   const [document, setDocument] = useState<DocumentResult | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
   const [isAsking, setIsAsking] = useState(false);
@@ -29,17 +30,23 @@ export default function DocumentViewPage() {
           if (!response.ok) throw new Error(result.error || "The document could not be loaded.");
           setDocument(result);
         })
-        .catch(() => setDocument(null));
+        .catch(() => setDocument(null))
+        .finally(() => setIsLoading(false));
       return;
     }
 
     const storedDocument = sessionStorage.getItem("contract-analyser-result");
-    if (!storedDocument) return;
+    if (!storedDocument) {
+      setIsLoading(false);
+      return;
+    }
 
     try {
       setDocument(JSON.parse(storedDocument) as DocumentResult);
     } catch {
       sessionStorage.removeItem("contract-analyser-result");
+    } finally {
+      setIsLoading(false);
     }
   }, [params.documentId]);
 
@@ -52,7 +59,14 @@ export default function DocumentViewPage() {
         </Link>
         <Link className="back-link" href="/">← New analysis</Link>
       </header>
-      {document ? (
+      
+      {isLoading ? (
+        <section className="empty-document" aria-live="polite">
+          <p className="eyebrow">Loading document</p>
+          <h1>Opening your document.</h1>
+          <p>Retrieving the saved document details.</p>
+        </section>
+      ) : document ? (
         <section className="document-content" aria-labelledby="document-title">
           <div className="document-heading">
             <p className="eyebrow">Extracted text</p>
