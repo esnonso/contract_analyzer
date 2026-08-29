@@ -114,8 +114,11 @@ Yes.
 
 The system is built from scratch starting August 28 using reproducible pipeline that can be replicated by anyone. The agent used is `GitHub CoPilot`. I give it the prompts and it creates the needed component. Because the process is deterministic at the application level and the components are clearly defined, another developer can reproduce the same architecture using NextJs, environment variables[`database connection & Gemini Api Key`], database configuration [MongoDB], embedding model[GoogleGemini], and LLM configuration[GoogleGemini].
 
+## 05 - IMPROVEMENTS
+Using the thought process and Pipeline used to create this app, this app can be tweaked to compare CV'S by a Hiring manager to see who has better strengths, Read Engineering Documents to explain diagrams to a layman. Compare research documents and so on. Whatever involves extracting data, analyzing it and giving intelligent answers based on the data fits into this process.
+
 ## NOTE
-* The uploaded pdf contracts are not uploaded or saved to a cloud Database like S3 Bucket, the texts is extracted, split into chunks and saved with reference to the original documentId on MongoDB.
+* The uploaded pdf contracts are not saved to a cloud Database like S3 Bucket, the texts is extracted, split into chunks and saved with reference to the original documentId on MongoDB.
 
 ## THOUGHT PROCESS/ PIPELINE/ ARCHITECTURE
 
